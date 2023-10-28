@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import { redirect } from "next/navigation";
 
 
 const formSchema = z.object({
@@ -40,10 +41,10 @@ export const StoreModal = () => {
     try {
       setLoading(true)
 
-
       const response = await axios.post('/api/stores', values);
       
-      toast.success("Store created.")
+      // toast.success("Store created.");
+      window.location.assign(`/${response.data.id}`)
       
     } catch(error) {
       toast.error("Something went wrong")

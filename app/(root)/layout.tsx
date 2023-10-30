@@ -24,9 +24,15 @@ export default async function SetupLayout({
         redirect(`/${store.id}`)
     }
 
+    // if (!store) {
+    //     redirect('/')
+    // }
+
     return (
-        
+        <>
             {children}
+        </>
+        )
        
-    )
+    
 }

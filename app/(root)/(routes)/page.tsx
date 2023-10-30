@@ -18,16 +18,18 @@ export default function SetupPage() {
     }
   }, [isOpen, onOpen])
 
-  return (
-   <div className='p-4'>
-    {/* <Button size="default" variant="default">Click Me</Button> */}
-    {/* <UserButton afterSignOutUrl='/'/> */}
-    {/* <Modal title="Test" description="Test Description" isOpen onClose={() => {}}>
-      Children
-    </Modal> */}
-    Root Page
-
-   </div>
-  )
+  return null
+    
+ 
+  
 }
 
+  //  <div className='p-4'>
+  //   {/* <Button size="default" variant="default">Click Me</Button> */}
+  //   {/* <UserButton afterSignOutUrl='/'/> */}
+  //   {/* <Modal title="Test" description="Test Description" isOpen onClose={() => {}}>
+  //     Children
+  //   </Modal> */}
+  //   Root Page NULL
+
+  //  </div>

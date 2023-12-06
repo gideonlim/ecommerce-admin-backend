@@ -113,7 +113,7 @@ model Image {
   product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
   url       String
   createdAt DateTime @default(now())
- updatedAt   DateTime  @updatedAt
+  updatedAt   DateTime  @updatedAt
 
  @@index([productId])
 }
@@ -135,15 +135,10 @@ model Order {
 model OrderItem {
   id      String @id @default(uuid())
   orderId String
-  order Order @relation(fields: [orderId],references:[id])
+  order Order @relation(fields: [orderId],references:[id], onDelete: Cascade)
   productId   String
   product  Product @relation(fields: [productId], references: [id])
   
   @@index([orderId])
   @@index([productId])
 }
-// wg9nleow6mrrzvf7o9br
-
-// pscale_pw_txztCvATzsUThVi3Bw3ObjLoyY0QGCYk5PpYsH8ZOm2
-
-//4.5

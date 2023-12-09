@@ -1,8 +1,13 @@
 'use client'
 
 import { cn } from "@/lib/utils"
+import { Ghost, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu";
+import { useState } from "react";
+
+
 
 export function MainNav({
     className,
@@ -10,6 +15,8 @@ export function MainNav({
 }: React.HTMLAttributes<HTMLElement>) {
     const pathname = usePathname();
     const params = useParams();
+    const [ menuOpen, setMenuOpen ] = useState(false)
+   
 
     const routes = [
         {
@@ -54,19 +61,48 @@ export function MainNav({
         }
     ];
     return (
-        <nav className={cn("flex items-center space-x-4 lg:space-x-6", className)}>
-            {routes.map((route) => (
-                <Link
+        <>
+            <nav className={cn("md:flex items-center space-x-4 lg:space-x-6 hidden", className)}>
+                {routes.map((route) => (
+                    <Link
                     key={route.href}
                     href={route.href}
                     className={cn(
                         "text-sm font-medium transition-colors hover:text-primary",
                         route.active ? "text-black dark:text-white" : "text-muted-foreground"
-                    )}
-                >
-                    {route.label}
-                </Link>
-            ))}
-        </nav>
+                        )}
+                        >
+                        {route.label}
+                    </Link>
+                ))}
+            </nav>
+            
+            <DropdownMenu>
+                <DropdownMenuTrigger className="md:hidden mx-3">
+                    <Menu />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-screen mt-4">
+                    <DropdownMenuLabel>Menu</DropdownMenuLabel>
+                    <DropdownMenuSeparator/>
+                    {routes.map((route) => (
+                    <DropdownMenuItem  key={route.href}>  
+                        <Link
+                       
+                        href={route.href}
+                        className={cn(
+                            "text-sm font-medium transition-colors hover:text-primary",
+                            route.active ? "text-black dark:text-white" : "text-muted-foreground"
+                            )}
+                            >
+                            {route.label}
+                        </Link>
+                    </DropdownMenuItem>  
+                ))} 
+                </DropdownMenuContent>
+            </DropdownMenu>
+
+            
+           
+        </>
     )
 }

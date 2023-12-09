@@ -68,3 +68,4 @@ if (event.type === "checkout.session.completed") {
 
     return new NextResponse(null, { status: 200 })
 }
+

@@ -109,8 +109,6 @@ export async function GET(
         return new NextResponse("Store id is required", { status: 400 })
     }
 
-
-
     const products = await prismadb.product.findMany({
         where: {
             storeId: params.storeId,
@@ -131,6 +129,7 @@ export async function GET(
         }
     });
 
+        console.log("products: ", products)
     return NextResponse.json(products);
   } catch (error) {
     console.log("[PRODUCTS_GET]", error);

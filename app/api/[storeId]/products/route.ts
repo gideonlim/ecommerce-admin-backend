@@ -129,7 +129,6 @@ export async function GET(
         }
     });
 
-        console.log("products: ", products)
     return NextResponse.json(products);
   } catch (error) {
     console.log("[PRODUCTS_GET]", error);

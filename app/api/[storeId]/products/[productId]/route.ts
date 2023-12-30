@@ -42,6 +42,7 @@ export async function PATCH (
         const { 
             name,
             price,
+            quantity,
             categoryId,
             colorId,
             sizeId,
@@ -62,6 +63,10 @@ export async function PATCH (
             return new NextResponse("Images are required", { status: 400 })
         }
     
+        if (quantity === undefined || quantity === null) {
+            return new NextResponse("Quantity is required", {status: 400})
+        }
+
         if (!price) {
             return new NextResponse("Price is required", {status: 400})
         }
@@ -100,6 +105,7 @@ export async function PATCH (
             data: {
                 name,
                 price,
+                quantity,
                 categoryId,
                 colorId,
                 sizeId,

@@ -73,7 +73,7 @@ export async function POST(
     },
     data: {
       quantity: {
-        decrement: 1, // Decrements the quantity by the number of units sold
+        decrement: 1, // decrease by 1 for now
       },
     },
   });

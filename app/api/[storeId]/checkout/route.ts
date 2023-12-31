@@ -47,6 +47,7 @@ export async function POST(
     });
   });
 
+
   const order = await prismadb.order.create({
     data: {
       storeId: params.storeId,
@@ -59,6 +60,20 @@ export async function POST(
             },
           },
         })),
+      },
+    },
+  });
+
+  // updating quantity for each product
+  const updatedProduct = await prismadb.product.updateMany({
+    where: {
+      id: {
+        in: productIds
+      }
+    },
+    data: {
+      quantity: {
+        decrement: 1, // Decrements the quantity by the number of units sold
       },
     },
   });

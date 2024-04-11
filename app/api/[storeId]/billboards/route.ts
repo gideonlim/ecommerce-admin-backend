@@ -9,7 +9,7 @@ export async function POST(
   try {
     const { userId } = auth();
     const body = await req.json()
-
+    console.log(userId)
     const { label, imageUrl } = body;
 
     if (!userId) {

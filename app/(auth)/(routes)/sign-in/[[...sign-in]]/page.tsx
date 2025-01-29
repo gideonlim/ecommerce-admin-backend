@@ -9,7 +9,7 @@ export default function Page() {
     <br/>
      Email: demodemo12357@gmail.com
      <br/>
-     Password: demo12357
+     Password: demo
     </h2>
   <SignIn />
   

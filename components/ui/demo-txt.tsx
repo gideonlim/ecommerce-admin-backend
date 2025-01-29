@@ -16,20 +16,20 @@ export const DemoTxt = () => {
       <br />
       Email: demodemo12357@gmail.com
       <Button
-        variant="outline"
+        variant="ghost"
         size="icon"
         onClick={(e) => onCopy("demodemo12357@gmail.com")}
-        className=" aspect-square"
+        className=" aspect-square ml-1"
       >
         <Copy className="h-4 w-4" />
       </Button>
       <br />
       Password: demo
       <Button
-        variant="outline"
+        variant="ghost"
         size="icon"
         onClick={(e) => onCopy("demo")}
-        className=" aspect-square"
+        className=" aspect-square ml-1"
       >
         <Copy className="h-4 w-4" />
       </Button>
